@@ -8,14 +8,28 @@ use App\Models\Supplier;
 use App\Models\SupplierRate;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Service class for API requests
+ */
 class SupplierApiService
 {
-    public function getAllSuppliersAndTheirRates()
+    /**
+     * Returns a list of all the suppliers and their rates
+     * 
+     * @return array 
+     */
+    public function getAllSuppliersAndTheirRates(): array
     {
         return SupplierResource::collection(Supplier::all());
     }
 
-    public function getAllOverlappingSuppliersAndTheirRates($supplier_id)
+    /**
+     * Calculate and return all the suppliers where their Rate start and Rate end overlaps
+     * 
+     * @param Int $supplier_id
+     * @return array
+     */
+    public function getAllOverlappingSuppliersAndTheirRates($supplier_id): array
     {
         if (isset($supplier_id)) {
             $rates = DB::select('SELECT 

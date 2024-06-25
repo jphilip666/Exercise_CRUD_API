@@ -7,9 +7,17 @@ use App\Models\SupplierRate;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Service class to handle operations on Supplier Rates
+ */
 class SupplierRateService
 {
-    public function getAllSupplierRatesTableData()
+    /**
+     * Get the list of Supplier Rates that will be used to display to the user
+     * 
+     * @return array
+     */
+    public function getAllSupplierRatesTableData(): array
     {
         $all_supplier_rates = SupplierRate::all();
 
@@ -37,6 +45,12 @@ class SupplierRateService
         return $supplier_rate_list;
     }
 
+    /**
+     * Create a new Supplier rate in the database
+     * 
+     * @param array $data
+     * @return string | status
+     */
     public function addSupplierRate($data): string
     {
         $user = Auth::user();
@@ -54,6 +68,13 @@ class SupplierRateService
         }
     }
 
+    /**
+     * Update an existing Supplier rate in the database
+     * 
+     * @param int $supplier_rate_id
+     * @param array $data
+     * @return string | status
+     */
     public function updateSupplierRate($supplier_rate_id, $data): string
     {
         $supplier_rate = SupplierRate::find($supplier_rate_id);
@@ -73,6 +94,12 @@ class SupplierRateService
         }
     }
 
+    /**
+     * Delete an existing Supplier rate from the database
+     * 
+     * @param int $supplier_rate_id
+     * @return string | status
+     */
     public function deleteSupplierRate($supplier_rate_id): string
     {
         $supplier_rate = SupplierRate::find($supplier_rate_id);
@@ -85,6 +112,10 @@ class SupplierRateService
         }
     }
 
+    /**
+     * Get a list of suppliers in key=>value format to be used to 
+     * create options in an select field in the frontend
+     */
     public function getAllSuppliersForSelect()
     {
         $supplier_list = [];

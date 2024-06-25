@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
+/**
+ * Supplier Model
+ */
 class Supplier extends Model
 {
     use HasFactory;
@@ -31,6 +34,8 @@ class Supplier extends Model
 
     /**
      * Get the supplier rates for this supplier.
+     * 
+     * This is a one to many relationship
      */
     public function rates(): HasMany
     {
@@ -38,7 +43,7 @@ class Supplier extends Model
     }
 
     /**
-     * Get the user who created this rate.
+     * Get the user who created this Supplier.
      */
     public function user(): HasOne
     {

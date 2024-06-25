@@ -7,8 +7,16 @@ use App\Models\SupplierRate;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Service class to handle operations on Suppliers
+ */
 class SupplierService
 {
+    /**
+     * Get the list of Supplier that will be used to display to the user
+     * 
+     * @return array
+     */
     public function getAllSuppliersTableData()
     {
         $all_suppliers = Supplier::all();
@@ -35,6 +43,12 @@ class SupplierService
         return $supplier_list;
     }
 
+    /**
+     * Create a new Supplier in the database
+     * 
+     * @param array $data
+     * @return string | status
+     */
     public function addSupplier($data): string
     {
         $user = Auth::user();
@@ -50,6 +64,13 @@ class SupplierService
         }
     }
 
+    /**
+     * Update an existing Supplier in the database
+     * 
+     * @param int $supplier_id
+     * @param array $data
+     * @return string | status
+     */    
     public function updateSupplier($supplier_id, $data): string
     {
         $supplier = Supplier::find($supplier_id);
@@ -67,6 +88,12 @@ class SupplierService
         }
     }
 
+    /**
+     * Delete an existing Supplier from the database
+     * 
+     * @param int $supplier_id
+     * @return string | status
+     */    
     public function deleteSupplier($supplier_id): string
     {
         $supplier = Supplier::find($supplier_id);

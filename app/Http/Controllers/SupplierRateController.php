@@ -10,10 +10,16 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
+/**
+ * Handles CRUD operation requests related to Supplier Rates
+ */
 class SupplierRateController extends Controller
 {
     /**
-     * Display the user's profile form.
+     * Display the Supplier Rate page that lists all the suppliers
+     * 
+     * @param Illuminate\Http\Request $request
+     * @return Illuminate\View\View
      */
     public function getSupplierRateListView(Request $request): View
     {
@@ -21,7 +27,11 @@ class SupplierRateController extends Controller
     }
 
     /**
-     * Display the user's profile form.
+     * Get the data that will be used in the Supplier Rate page table list
+     * 
+     * @param Illuminate\Http\Request $request
+     * @param App\Services\SupplierService $supplierService
+     * @return Illuminate\Http\JsonResponse
      */
     public function getSupplierRateTableData(Request $request, SupplierRateService $supplierRateService): JsonResponse
     {
@@ -33,7 +43,11 @@ class SupplierRateController extends Controller
     }
 
     /**
-     * Display the user's profile form.
+     * Create and add a new Supplier Rate
+     * 
+     * @param App\Http\Requests\SupplierRatePostRequest $request
+     * @param App\Services\SupplierService $supplierService
+     * @return Illuminate\Http\JsonResponse
      */
     public function addSupplierRate(SupplierRatePostRequest $request, SupplierRateService $supplierRateService): JsonResponse
     {
@@ -47,7 +61,11 @@ class SupplierRateController extends Controller
     }
 
     /**
-     * Display the user's profile form.
+     * Update an existing Supplier Rate
+     * 
+     * @param App\Http\Requests\SupplierRateUpdateRequest $request
+     * @param App\Services\SupplierService $supplierService
+     * @return Illuminate\Http\JsonResponse
      */
     public function updateSupplierRate(SupplierRateUpdateRequest $request, SupplierRateService $supplierRateService): JsonResponse
     {
@@ -62,7 +80,11 @@ class SupplierRateController extends Controller
     }
 
     /**
-     * Display the user's profile form.
+     * Delete a Supplier Rate
+     * 
+     * @param App\Http\Requests\SupplierRateIdRequest $request
+     * @param App\Services\SupplierService $supplierService
+     * @return Illuminate\Http\JsonResponse
      */
     public function deleteSupplierRate(SupplierRateIdRequest $request, SupplierRateService $supplierRateService): JsonResponse
     {

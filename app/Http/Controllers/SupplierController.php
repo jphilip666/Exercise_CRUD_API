@@ -10,10 +10,16 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
+/**
+ * Handles CRUD operation requests related to Suppliers
+ */
 class SupplierController extends Controller
 {
     /**
-     * Display the user's profile form.
+     * Display the Supplier page that lists all the suppliers
+     * 
+     * @param Illuminate\Http\Request $request
+     * @return Illuminate\View\View
      */
     public function getSupplierListView(Request $request): View
     {
@@ -21,7 +27,11 @@ class SupplierController extends Controller
     }
 
     /**
-     * Display the user's profile form.
+     * Get the data that will be used in the Supplier page table list
+     * 
+     * @param Illuminate\Http\Request $request
+     * @param App\Services\SupplierService $supplierService
+     * @return Illuminate\Http\JsonResponse
      */
     public function getSupplierTableData(Request $request, SupplierService $supplierService): JsonResponse
     {
@@ -32,7 +42,11 @@ class SupplierController extends Controller
     }
 
     /**
-     * Display the user's profile form.
+     * Create and add a new Supplier 
+     * 
+     * @param App\Http\Requests\SupplierPostRequest $request
+     * @param App\Services\SupplierService $supplierService
+     * @return Illuminate\Http\JsonResponse
      */
     public function addSupplier(SupplierPostRequest $request, SupplierService $supplierService): JsonResponse
     {
@@ -46,7 +60,11 @@ class SupplierController extends Controller
     }
 
     /**
-     * Display the user's profile form.
+     * Update an existing Supplier
+     * 
+     * @param App\Http\Requests\SupplierUpdateRequest $request
+     * @param App\Services\SupplierService $supplierService
+     * @return Illuminate\Http\JsonResponse
      */
     public function updateSupplier(SupplierUpdateRequest $request, SupplierService $supplierService): JsonResponse
     {
@@ -61,7 +79,11 @@ class SupplierController extends Controller
     }
 
     /**
-     * Display the user's profile form.
+     * Delete a Supplier
+     * 
+     * @param App\Http\Requests\SupplierIdRequest $request
+     * @param App\Services\SupplierService $supplierService
+     * @return Illuminate\Http\JsonResponse
      */
     public function deleteSupplier(SupplierIdRequest $request, SupplierService $supplierService): JsonResponse
     {
