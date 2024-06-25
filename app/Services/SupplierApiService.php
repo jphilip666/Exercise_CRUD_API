@@ -7,7 +7,7 @@ use App\Http\Resources\SupplierResource;
 use App\Models\Supplier;
 use App\Models\SupplierRate;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 /**
  * Service class for API requests
  */
@@ -18,7 +18,7 @@ class SupplierApiService
      * 
      * @return array 
      */
-    public function getAllSuppliersAndTheirRates(): array
+    public function getAllSuppliersAndTheirRates(): AnonymousResourceCollection
     {
         return SupplierResource::collection(Supplier::all());
     }
