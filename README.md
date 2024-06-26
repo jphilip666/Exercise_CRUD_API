@@ -1,11 +1,10 @@
-## Exercise CRUD API
+# Exercise CRUD API
 
 This project is a Laravel project. It has a Web application with CRUD operation on Suppliers and Supplier Rates.
 It also has Restful API implemented using Laravel Sanctum Authentication package. It also has Login/Register webpages which was created by the package Laravel Breeze. Once you login then you will see the Supplier and Supplier rates CRUD operations which was implemented by me.
 
 ## Installation instruction
 
-# Exercise_CRUD_API
 - Download this project from the repository and CD into the root directory.
 - There will be a .env file which you will need to use to enter the database credentials. 
     - Please enter DB_CONNECTION=mariadb or mysql and then enter the database credentials
@@ -17,6 +16,6 @@ It also has Restful API implemented using Laravel Sanctum Authentication package
     - Then you can access the Application.
     - You will need this running if you want to test the API
 
-# PHPUnit tests
+## PHPUnit tests
 - If you want to run the couple of PHP feature tests I implemented for the API the use the command below inside the root directory
     - php artisan test --filter APITest
