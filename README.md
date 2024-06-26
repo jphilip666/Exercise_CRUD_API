@@ -22,6 +22,10 @@ It also has Restful API implemented using Laravel Sanctum Authentication package
     - Then you can access the Application usually at http://127.0.0.1:8000
     - You will need this running if you want to test the API
 
+# PHPUnit tests
+- If you want to run the couple of PHP feature tests I implemented for the API the use the command below inside the root directory
+    - php artisan test --filter APITest
+
 # Postman
 
 To test the API I created some postman requests to make it easier to test it. You can use the link below and then import it in your Postman. You will need the CRUD application running to test it. We will be using http://127.0.0.1:8000 to test the API’s.
